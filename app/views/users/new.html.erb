@@ -1,0 +1,9 @@
+<%= form_with model: @user, url: new_user_path do |f| %>
+    <%= f.text_field :fullname, placeholder: "Full Name" %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_field :age, placeholder: "Age" %>
+    <%= f.text_field :address, placeholder: "Address" %>
+    <%= f.email_field :email, placeholder: "Email" %>
+    <%= f.password_field :password_digest, placeholder: "Password" %>
+    <%= f.submit "Create user", disable_with: "Creating user" %>
+<% end %>

@@ -1,0 +1,46 @@
+Creacion de un proyecto rails con la bd sqlite3 desde la consola
+=> rails new nombre
+Si se quiere utilizar una base de datos distinta (en este ejemplo postgresql)
+=> rails new nombre --database-postgresql
+
+rails console => Para ingresar a la consola de ruby
+#Conocer el schema de la tabla en ruby on rails: 
+puts Product.columns.map { |column| "#{column.name}: #{column.type}"}
+#Products es el nombre de la tabla que se creo
+
+#Para crear un articulo en el modelo, en este caso en Product
+Product.create(title:'iphone 11 seminuevo',description:'Esta en perfecto estado',price:200)
+Product.all => nos mostrara todos los valores que existen en el modelo
+
+#Abrir el proyecto desde la consola
+=> code .
+
+#Para agregar nuevas gemas se agrega en el archivo Gemfile => gem 'nombre de la gema'
+# luego de eso en la consola escribimos bundle install y eso instalara la gema que se agrego en el archivo
+
+#Para agregar modelos a la base de datos en ruby
+=> rails generate model nombre_modelo dato:tipo_dato dato2:tipo_dato .....
+# Si no se agrega el tipo de dato este se creara como string. Los modelos creados quedan alojados en db/migrate/nombre_modelo. Para revisar el modelo y poder realizar modificaciones antes
+de la migracion se puede revisar los modelos en app/models/nombre_modelo.
+
+#Una vez creado el modelo se debe realizar la migración de los modelos
+=> rails db:migrate
+
+#Una vex realizada la migracion se pueden revisar el esquema del modelo migrado: 
+	db/migrate/schema.rb
+
+#Creación de controladores
+#Los controaldores por lo general se crean junto con los modelos, acá es donde se realiza la logica para poder manipular la información que contienen los modelos. Los modelos se crean en Singular y los controladores en plural.
+#generate se puede referenciar utilizando solo la g
+=> rails generate controller Users
+
+#Abrir la consola en rails
+=>rails console
+
+#Realizar un select*from modelo desde rails
+=> Modelo.all
+
+#Para conocer las rutas del proyecto
+=> rails routes
+
+
